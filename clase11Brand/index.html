@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase 11 - Brand</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header>
+        <h1 class="title">Jardin de Eventos: "Mi Deseo"</h1>
+    </header>
+    <div class="container">
+    <h2 class="title2">Cotiza tu evento</h2>
+    </div>
+    <form class="" action="index.html" method="post" id="formulario">
+    <table class="table" border="1">
+        <tr>
+            <td><label for="">Cliente</label></td>
+            <td>
+                <input type="text" name="form_cliente" id="form_cliente">
+            </td>
+        </tr>
+        <tr>
+            <td><label for="">Servicios</label></td>
+            <td>
+                <select name="form_servicio" id="form_servicio">
+                    <option value="Mesas">Mesas</option>
+                    <option value="Sillas">Sillas</option>
+                    <option value="Manteles">Manteles</option>
+                    <option value="Lona">Lona</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="">Precio</label></td>
+            <td>
+                <input id="form_precio" type="number" name="form_precio" value="">
+            </td>
+        </tr>
+        <tr>
+            <td><label for="">Cantidad</label></td>
+            <td>
+                <input id="form_cantidad" type="number" name="form_cantidad">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button type="button" name="button" onclick="agregar_servicio()">Agregar Servicio</button>
+            </td>
+        </tr>
+        <td>
+            <button>Finalizar</button>
+        </td>
+    </table>
+    </form>
+    <br>
+    <table class="table2" border="1" id="table2">
+        <thead>
+            <tr>
+                <th>Servicio</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+                <th>Subtotal</th>
+                <th>-</th>
+            </tr>
+        </thead>
+        <tbody id="tabla_servicios">
+        </tbody>
+            <tfoot>
+                <tr>
+                    <th colspan="4">Total</th>
+                    <th id="total">$</th>
+                </tr>
+            </tfoot>
+    </table>
+    <script src="./main.js"></script>
+</body>
+</html>

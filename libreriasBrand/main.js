@@ -1,0 +1,74 @@
+function agregar_servicio() {
+    let cliente = document.getElementById("form_cliente");
+    let servicio = document.getElementById("form_servicio");
+    let precio = document.getElementById("form_precio");
+    let cantidad = document.getElementById("form_cantidad");
+    let datos = document.getElementById("tabla_servicios");
+    let subtotal = Number(precio.value) * Number(cantidad.value);
+
+    datos.innerHTML = datos.innerHTML + "<tr><td>" + servicio.value + "</td><td>" + precio.value + "</td><td>" + cantidad.value + "</td><td name='subtotal'>" + subtotal + "</td><td><button onclick='eliminar_producto(this)'>Eliminar</button></td></tr>";
+calcular_total();
+}
+
+function calcular_total() {
+    let subtotales = document.getElementsByName('subtotal');
+    let total = document.getElementById('total');
+    let suma = 0;
+    for (let i=0; i < subtotales.length; i++) {
+        suma = suma + Number(subtotales[i].innerText)
+    }
+
+    total.innerText = "$" + suma;
+}
+
+function eliminar_producto(servicio) {
+    servicio.parentElement.parentElement.remove();
+    calcular_total();
+}
+
+function mostrarPrecio(e) {
+    let precios =  e.target.selectedOptions[0].getAttribute("precio")
+    document.getElementById("form_precio").value = precios;
+}
+
+
+class Cotizacion {
+    constructor(cliente, servicios, total) {
+        this.cliente = cliente;
+        this.servicios = servicios;
+        this.total = total;
+    }
+}
+
+const cotizaciones = []; 
+
+if(localStorage.getItem("cotizaciones")) {
+    let cotizacion = JSON.parse(localStorage.getItem("cotizaciones"));
+    for(let i = 0; i < cotizacion.length; i++ ) {
+        cotizaciones.push(cotizacion[i]);
+    }
+}
+
+const formulario = document.getElementById("formulario");
+const datos = document.getElementById("tabla_servicios")
+const botonFin = document.getElementById("botonFin");
+
+botonFin.addEventListener("click", () => {
+    Swal.fire(`Cotización Enviada`);
+});
+
+formulario.addEventListener("submit", (e) => {
+    e.preventDefault();
+    agregarCotizacion();
+    formulario.reset();
+})
+
+function agregarCotizacion() {
+    const cliente = document.getElementById("form_cliente").value;
+    const servicios = document.getElementById("form_servicio").value;
+    const total = document.getElementById('total').value;
+    const nuevaCotizacion = new Cotizacion(cliente, servicios, total);
+    cotizaciones.push(nuevaCotizacion);
+    localStorage.setItem("cotizaciones", JSON.stringify(cotizaciones));
+}
+

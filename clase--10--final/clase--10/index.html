@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase 10 - Storage && JSON</title>
+</head>
+<body>
+    <h1>Sistema de Reserva Hotel "Pepelepu"</h1>
+    <form id="formulario">
+        <label for="nombre">Nombre del Cliente: </label>
+        <input id="nombre" type="text">
+        <br><br>
+
+        <label for="apellido">Apellido del Cliente</label>
+        <input id="apellido" type="text">
+        <br><br>
+
+        <label for="reserva">Número de Reserva</label>
+        <input id="reserva" type="text">
+        <br><br>
+
+        <label for="habitacion">Habitación: </label>
+        <select name="habitacion" id="habitacion">
+            <option value="individual">Individual</option>
+            <option value="doble">Doble</option>
+            <option value="suite">Suite</option>
+        </select>
+        <button>Reservar</button>
+    </form>
+    
+    <h2>Ver Reservas Vigentes: </h2>
+    <br><br>
+    <button id="verReservas">VER RESERVAS</button>
+    <div id="contenedorReservas"></div>
+    
+    
+    <script src="reservas.js"></script>
+    <!-- <script src="main.js"></script> -->
+</body>
+</html>

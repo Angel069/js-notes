@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase 9 - Brand</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <h1>Cotiza tu evento</h1>
+    <form class="" action="index.html" method="post">
+        <table>
+            <tr>
+                <td><label for="">Productos</label></td>
+                <td>
+                    <select id="form_producto" class="" name="form_producto">
+                        <option value="Mesas">Mesas</option>
+                        <option value="Sillas">Sillas</option>
+                        <option value="Manteles">Manteles</option>
+                        <option value="Lona">Lona</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="">Valor</label></td>
+                <td>
+                    <input id="form_valor" type="number" name="form_valor" value="" cambiarValor()>
+                </td>
+            </tr>
+            <tr>
+            <td><label for="">Cantidad</label></td>
+                <td>
+                    <input id="form_cantidad" type="number" name="form_cantidad" value="">
+                </td>
+            </tr>    
+            <tr>
+                <td colspan="2">
+                    <button type="button" name="button" onclick="agregar_producto()">Agregar Producto</button>
+                </td>
+             </tr>    
+        </table>
+    </form>
+    <br>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Valor</th>
+                <th>Cantidad</th>
+                <th>Subtotal</th>
+                <th>-</th>
+            </tr>
+        </thead>
+        <tbody id="tabla_productos">
+
+        </tbody>
+        <tfoot>
+            <tr>
+                <th colspan="4">Total</th>
+                <th id="total">$</th>
+            </tr>
+        </tfoot>
+    </table>
+    <img class="imagen" src="./imagenes/precios.jpg">
+    <script src="./main.js"></script>
+</body>
+</html>
